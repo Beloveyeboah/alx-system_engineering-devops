@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script display part
+# of the working directory
+for file in *; do
+	if [[ -f "$file" ]]; then
+		part=$(echo "$file" | cut -d "-" -f 2-)
+		echo "$part"
+	fi
+done
