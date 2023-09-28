@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script prints best schoo
+# This script
 n=1
 while [ $n -le 10 ]
 do
