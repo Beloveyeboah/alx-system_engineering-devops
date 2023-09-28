@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script prints best schoo
+n=1
+while [ $n -le 10 ]
+do
+	if [ $n -eq 9 ]
+	then
+		echo "hi"
+	else
+		echo "Best school"
+	fi
+	n=$((n + 1))
+done
