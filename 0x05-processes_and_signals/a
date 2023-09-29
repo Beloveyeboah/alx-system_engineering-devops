@@ -1,4 +1,2 @@
 #!/usr/bin/env bash
 # the scripts
-echo "chmod u+x"
-echo "cp"
