@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# scripts displays the ps
+# shellcheck disable=SC2009
+ps -auxf | grep -w bash
