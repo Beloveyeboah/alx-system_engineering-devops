@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# scripts displays with pgrep
+
+pgrep -l bash
