@@ -2,13 +2,11 @@
 # the scripts Creates the file /var/run/myscript.pid containing its PID
 # shellcheck disable=SC2064
 
-file=/var/run/myscript.pid
-echo $$ > myscript.pid
+echo $$ >> /var/run/myscript.pid
 
-trap "echo 'I hate the kill command'; rm -rf $file; exit" SIGTERM
+trap "echo 'I hate the kill command'; rm -rf /var/run/myscript.pid; exit; exit" SIGTERM
 trap "echo 'Y U no love me?!'" SIGINT
-trap "rm -rf /var/run/holbertonscript.pid; exit" SIGQUIT
-
+trap "rm -rf /var/run/myscript.pid; exit" SIGQUIT
 
 while :
 do
