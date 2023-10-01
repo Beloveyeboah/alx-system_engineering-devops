@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # the scripts detached from the terminal and running in the background
 
-my_path="/tmp/my_process"
-my_pid=""
-
 if [ $# -gt 0 ]
 then
 	if [ "$1" == "start" ]
