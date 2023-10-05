@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+touch $1
+chmod u+x $1
+echo "#!/usr/bin/env bash" >> $1
+echo "# this script " >> $1
