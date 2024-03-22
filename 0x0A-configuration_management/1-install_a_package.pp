@@ -4,11 +4,9 @@ package { 'python3-pip':
   ensure => installed,
 }
 
-package { 'Flask':
+package { 'flask':
   ensure => '2.1.0',
   provider => 'pip3',
-  pkgname => 'Flask',
-  require => Package['python3-pip'],
 }
 
 package {'werkzeug':
