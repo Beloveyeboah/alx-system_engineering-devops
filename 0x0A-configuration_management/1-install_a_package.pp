@@ -1,8 +1,4 @@
-# installs flask using puppet pip3
-
-package { 'python3-pip':
-  ensure => installed,
-}
+# this install flask with version 2.1.0
 
 package { 'flask':
   ensure => '2.1.0',
