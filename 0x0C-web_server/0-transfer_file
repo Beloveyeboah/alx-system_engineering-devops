@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # using scp command to transfer from local machine to a remote server verified the number o argument on the command line
 
