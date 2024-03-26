@@ -15,7 +15,7 @@ printf %s "server {
     index  index.html index.htm;
 
     location /redirect_me {
-        return https://www.youtube.com/watch?v=iWZmdoY1aTE&list=RDiWZmdoY1aTE&start_radio=1;
+        return 301 https://www.youtube.com/watch?v=TfgBHC5gvTI;
     }
 
     error_page 404 /404.html;
@@ -25,4 +25,4 @@ printf %s "server {
     }
 }" > /etc/nginx/sites-available/default
 
-sudo service nginx restart
+service nginx restart
