@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+sudo apt-get update
+sudo apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# sudo sed -i '/server_name _;/a \\trewrite ^/redirect https://www.geeksforgeeks.org/sed-command-in-linux-unix-with-examples permanent;' /etc/nginx/sites-enabled/default
+
+#string_for_replacement="server_name _;\n\tadd_header X-Served-By \$hostname;\n\trewrite ^\/redirect_me https://github.com/Beloveyeboah permanent;"
+#sudo sed -i "/server_name _;/a /$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+ sudo sed -i '/server_name _;/a \\tadd_header X-Served-By $HOSTNAME;\n\trewrite ^\/redirect_me https://github.com/Beloveyeboah permanent;' /etc/nginx/sites-enabled/default
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+string_for_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+sudo nginx -t
+sudo service nginx restart
