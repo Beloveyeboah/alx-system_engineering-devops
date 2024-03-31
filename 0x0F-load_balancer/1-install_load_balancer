@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# configuring  configure HAproxy on your lb-01 server
+# to direct traffic to web-01 and web-02
+
+# 1. Install and configure HAproxy on my lb-01 server.
+
+sudo apt-get -y update
+apt-get -y install haproxy
