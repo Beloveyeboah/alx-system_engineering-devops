@@ -39,6 +39,7 @@ frontend  beloveyeboah-frontend-http
         bind *:80
         mode http
         http-request set-header X-Forwarded-Proto http
+        http-request redirect scheme https code 301 unless { ssl_fc }
         default_backend beloveyeboah-backend
 
 frontend  beloveyeboah-frontend-https
@@ -46,7 +47,3 @@ frontend  beloveyeboah-frontend-https
         http-request set-header X-Forwarded-Proto https
         http-request redirect scheme https code 301 unless { ssl_fc }
         default_backend beloveyeboah-backend
-
-backend beloveyeboah-backend
-        balance roundrobin
-        server 255269-web-01 34.239.207.252:80 check
