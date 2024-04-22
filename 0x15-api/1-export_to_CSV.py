@@ -1,19 +1,31 @@
 #!/usr/bin/python3
-"""Accessing a REST API for todo lists of employees"""
+""" accessing empolyess name and todo"""
+
 
 import csv
 import requests
-import sys
+from sys import argv
 
-if __name__ == "__main__":
-    user_id = sys.argv[1]
-    url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(user_id)).json()
-    username = user.get("username")
-    todos = requests.get(url + "todos", params={"userId": user_id}).json()
+if __name__ == '__main__':
+    """ exporting todo of employees by csv"""
 
-    with open("{}.csv".format(user_id), "w", newline="") as csvfile:
-        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        [writer.writerow(
-            [user_id, username, t.get("completed"), t.get("title")]
-         ) for t in todos]
+    employee_id = argv[1]
+    base_url = "https://jsonplaceholder.typicode.com"
+    users_url = "{}/users/{}".format(base_url, employee_id)
+    todo_url = "{}/todos?userId={}".format(base_url, employee_id)
+    employee_respones = requests.get(users_url)
+
+    # get name of employee
+    employee_name = employee_respones.json().get('name')
+
+    # get todo
+
+    todo_response = requests.get(todo_url)
+    todos_task = todo_response.json()
+
+    # exporting by csv
+    with open('{}.csv'.format(employee_id), 'w') as file:
+        for task in todos_task:
+            file.write('"{}","{}","{}","{}"\n'
+                       .format(employee_id, employee_name,
+                               task.get('completed'), task.get('title')))
