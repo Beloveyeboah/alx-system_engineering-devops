@@ -16,7 +16,7 @@ if __name__ == '__main__':
     employee_respones = requests.get(users_url)
 
     # get name of employee
-    employee_name = employee_respones.json().get('name')
+    employee_name = employee_respones.json().get('username')
 
     # get todo
 
