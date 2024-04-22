@@ -2,11 +2,12 @@
 # accessing empolyess name and todos
 
 
-from sys import argv
 import requests
-import json
+from sys import argv
 
 if __name__ == '__main__':
+    """ this module uses api of jsonplaceholder"""
+
     employee_id = argv[1]
     base_url = "https://jsonplaceholder.typicode.com"
     users_url = "{}/users/{}".format(base_url, employee_id)
