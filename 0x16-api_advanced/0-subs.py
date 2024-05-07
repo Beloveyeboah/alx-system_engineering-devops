@@ -4,9 +4,14 @@
 import json
 import requests
 
+
 def number_of_subscribers(subreddit):
     """ make a request Reddit Api """
 
+    if subreddit is None:
+        return 0
+    elif type(subreddit) == "str":
+        return 0
     user = {"User-Agent": "beloveyeboah"}
     url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     req = requests.get(url, headers=user)
