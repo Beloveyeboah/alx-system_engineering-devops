@@ -8,8 +8,6 @@ global
         group haproxy
         daemon
 
-        tune.ssl.default-dh-param 2048
-
         # Default SSL material locations
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
@@ -35,7 +33,7 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend  beloveyeboah-frontend-http
+frontend  beloveyeboah-frontend
         bind *:80
         mode http
         http-request set-header X-Forwarded-Proto http
@@ -48,5 +46,5 @@ frontend  beloveyeboah-frontend-https
 
 backend beloveyeboah-backend
         balance roundrobin
-        server 255269-web-01 34.239.207.252:80 check
-        server 255269-web-02 54.237.76.244:80 check
+        server 255269-web-01 52.87.216.92:80 check
+        server 255269-web-02 54.210.16.169:80 check
